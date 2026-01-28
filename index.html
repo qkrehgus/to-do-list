@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>날짜별 To‑Do List (오늘의 할 일)</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-label="날짜별 할 일">
+      <header class="header">
+        <div class="titleWrap">
+          <h1 class="title">오늘의 할 일</h1>
+          <p class="subtitle" id="selectedDateHuman">—</p>
+        </div>
+
+        <section class="dateControls" aria-label="날짜 선택">
+          <label class="dateLabel" for="dateInput">날짜</label>
+          <input id="dateInput" type="date" />
+          <button id="todayBtn" class="btn btnSecondary" type="button">오늘</button>
+        </section>
+      </header>
+
+      <section class="composer" aria-label="할 일 추가">
+        <form id="addForm" class="addForm" autocomplete="off">
+          <label class="srOnly" for="todoInput">할 일</label>
+          <input
+            id="todoInput"
+            class="todoInput"
+            type="text"
+            inputmode="text"
+            placeholder="할 일을 입력하고 Enter…"
+            maxlength="120"
+            required
+          />
+          <button class="btn" type="submit">추가</button>
+        </form>
+        <p class="hint" id="countHint">—</p>
+      </section>
+
+      <section class="list" aria-label="할 일 목록">
+        <ul id="todoList" class="todoList" aria-live="polite"></ul>
+        <div id="emptyState" class="emptyState" hidden>
+          <p class="emptyTitle">아직 할 일이 없어요.</p>
+          <p class="emptyDesc">위 입력창에 오늘(선택한 날짜)의 할 일을 추가해보세요.</p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p class="footerText">
+          저장 위치: 이 브라우저의 <strong>LocalStorage</strong> (로그인 없이 기기/브라우저별로 유지)
+        </p>
+      </footer>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
